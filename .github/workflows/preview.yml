@@ -1,0 +1,14 @@
+name: deploy-preview
+on: pull_request
+
+jobs:
+    build:
+      name: Deploy
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v1
+        - uses: getsentry/action-frontend-preview@master
+          with:
+            githubToken: ${{ secrets.GITHUB_TOKEN }}
+            zeitToken: ${{ secrets.ZEIT_TOKEN }}
+            zeitTeamId: team_3s7msZoNhoOu3ALsOrGK4KCT
